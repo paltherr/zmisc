@@ -1,0 +1,24 @@
+#!/usr/bin/env zsh
+
+################################################################################
+# Function "show-args"
+
+# NAME
+#
+# show-args – Show command line arguments.
+
+# SYNOPSIS
+#
+# show-args [<argument>…]
+
+# DESCRIPTION
+#
+# Prints the number of arguments provided and their values.
+
+printf "ARGC=%d\n" $ARGC 1>&2;
+local -i i;
+for ((i=1; i <= $#; i++)); do
+  printf "argv[%0${#${ARGC}}d]=%s\n" $i "${(qqqq)argv[i]}" 1>&2;
+done;
+
+################################################################################
